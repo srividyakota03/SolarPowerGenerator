@@ -1,4 +1,3 @@
-# Week1_SolarPowerGenerator
 # Solar Power Prediction Using Linear Regression
 
 ## Overview
