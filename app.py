@@ -7,14 +7,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
-# ---- Set Page Config ----
 st.set_page_config(page_title="Solar Power Prediction", layout="wide")
 
-# ---- Title Section ----
 st.markdown("<h1 style='text-align: center;'>🔆 Solar Power Prediction </h1>", unsafe_allow_html=True)
 st.write("\n")  # Spacing
 
-# ---- Load CSV File ----
+#Load CSV File
 csv_file = "Dataset/solarpowergeneration.csv"
 
 if not os.path.exists(csv_file):
@@ -29,9 +27,9 @@ def load_data():
 
 df = load_data()
 
-# ---- Layout: Dataset Preview & Detected Columns ----
+# Layout: Dataset Preview & Detected Columns
 st.write("\n")  # Spacing
-col1, col2 = st.columns([1.5, 1])  # Adjusted width for better alignment
+col1, col2 = st.columns([1.5, 1]) 
 
 with col1:
     st.subheader("📊 Dataset Preview")
@@ -41,7 +39,7 @@ with col2:
     st.subheader(" Detected Columns")
     st.write(df.columns.tolist())
 
-# ---- Feature & Target Selection ----
+# Feature & Target Selection
 feature_keywords = ["irradiance", "temperature", "humidity", "wind", "speed"]
 target_keywords = ["power", "output", "generation"]
 
@@ -49,29 +47,29 @@ features = [col for col in df.columns if any(keyword in col for keyword in featu
 target = next((col for col in df.columns if any(keyword in col for keyword in target_keywords)), None)
 
 if target is None:
-    target = df.columns[-1]  # Default to last column
+    target = df.columns[-1]  
 
 X = df[features]
 y = df[target]
 
-# ---- Handle Missing Values ----
+#Handle Missing Values
 X.fillna(X.mean(), inplace=True)
 y.fillna(y.mean(), inplace=True)
 
-# ---- Train/Test Split ----
+#Train/Test Split 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# ---- Train Model ----
+#Train Model 
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# ---- Model Evaluation ----
+# Model Evaluation 
 y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-# ---- Display Model Metrics ----
-st.write("\n")  # Spacing
+#Display Model Metrics
+st.write("\n")  
 metric_col1, metric_col2 = st.columns(2)
 
 with metric_col1:
@@ -80,9 +78,9 @@ with metric_col1:
 with metric_col2:
     st.metric(label="📈 R² Score", value=f"{r2:.2f}")
 
-# ---- Layout: Prediction Inputs & Graph ----
-st.write("\n")  # Spacing
-col3, col4 = st.columns([1, 1.2])  # Adjusted width for balance
+#Layout: Prediction Inputs & Graph
+st.write("\n")  
+col3, col4 = st.columns([1, 1.2])  
 
 with col3:
     st.subheader("🌞 Make a Prediction")
@@ -104,7 +102,7 @@ with col4:
     ax.legend()
     st.pyplot(fig)
 
-# ---- Display Predicted Output BELOW the Graph ----
-st.write("\n")  # Spacing
+# Display Predicted Output BELOW the Graph
+st.write("\n")  
 if "prediction_value" in st.session_state:
     st.markdown(f"<h3 style='text-align: center; color: green;'>🔋 Predicted Power Output: {st.session_state.prediction_value:.2f} kW</h3>", unsafe_allow_html=True)
