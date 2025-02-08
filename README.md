@@ -24,7 +24,7 @@ This project predicts **solar power generation** using **Linear Regression**. It
 
 ---
 
-## 🚀 1. Installation & Setup
+## 🚀  Installation & Setup
 
 ### 🔹 **Step 1: Clone the Repository**
 ```bash
@@ -44,7 +44,7 @@ streamlit run app.py
 
 ---
 
-## 📊 2. Dataset Overview (`solarpowergeneration.csv`)
+## 📊  Dataset Overview (`solarpowergeneration.csv`)
 
 | **Column Name**  | **Description** |
 |------------------|---------------|
@@ -56,7 +56,7 @@ streamlit run app.py
 
 ---
 
-##  3. Model Training (Jupyter Notebook)
+##   Model Training (Jupyter Notebook)
 The **`SolarPower.ipynb`** file contains:
 ✅ **Data Loading & Preprocessing**  
 ✅ **Exploratory Data Analysis (EDA)**  
@@ -65,7 +65,7 @@ The **`SolarPower.ipynb`** file contains:
 
 ---
 
-## 🖥️ 4. Web App Overview (`app.py`)
+## 🖥️  Web App Overview (`app.py`)
 
 ### 📈 **Features of the Streamlit App**
 - **📂 Dataset Overview** (Displayed in a table)
@@ -75,7 +75,7 @@ The **`SolarPower.ipynb`** file contains:
 
 ---
 
-## 📊 5. Example Usage
+## 📊  Example Usage
 
 Once you run the **Streamlit app (`app.py`)**, you can input weather parameters:
 
@@ -90,7 +90,7 @@ Once you run the **Streamlit app (`app.py`)**, you can input weather parameters:
 
 ---
 
-## 📊 6. Results & Evaluation
+## 📊  Results & Evaluation
 
 | **Metric** | **Value** |
 |------------|----------|
@@ -98,5 +98,10 @@ Once you run the **Streamlit app (`app.py`)**, you can input weather parameters:
 | 📈 **R² Score** | `0.94` |
 
 ---
+
+## 🚀 Deployed App
+The project is deployed on **Streamlit Cloud**. Click below to access:
+
+🔗 **[Live Demo](https://solarpowergenerator.streamlit.app/)**
 
 
