@@ -13,7 +13,7 @@ st.markdown("<h1 style='text-align: center;'>🔆 Solar Power Prediction </h1>",
 st.write("\n")  # Spacing
 
 #Load CSV File
-csv_file = "Dataset/solarpowergeneration.csv"
+csv_file = "solarpowergeneration.csv"
 
 if not os.path.exists(csv_file):
     st.error(f"🚨 Error: The file `{csv_file}` was not found! Please ensure it is in the same directory.")
